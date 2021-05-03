@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+      
+        .content{
+            width: 400px;
+            border-radius:8px ;
+            border:6px solid rgb(238, 238, 222);
+            background-color: rgb(200, 218, 230);
+        }
+        .registration {
+            width: 70%;
+            /* background-color: rgb(210, 233, 225); */
+            padding: 60px;
+            color: rgb(30, 79, 119);
+        }
+        #registration{
+            display: none;
+            position:sticky;
+        }
+        .login{
+            width: 70%;
+            /* background-color: rgb(13, 129, 89); */
+            padding: 60px;
+            margin-top: 10px;
+            color: rgb(30, 79, 119);
+        }
+        input[type=radio]{
+            width: fit-content;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+        }
+
+        input[type=submit] {
+            background-color: #1463a3;
+            color: white;
+        }
+
+        .container {
+            /* background-color: rgb(210, 233, 225); */
+            background-color: rgb(20, 71, 105);
+            padding: 30px;
+            width: fit-content;
+        }
+
+        #message {
+            display:none;
+            background: #f1f1f1;
+            color: #000;
+            position: relative;
+            padding: 10px;
+            padding-top: 0;
+            margin-top: 0px;
+        }
+
+        #message p {
+            padding: 0px 35px;
+            font-size: 12px;
+        }
+
+        .valid {
+             color: green;
+        }
+
+        .valid:before {
+            position: relative;
+            left: -35px;
+            content: "✔";
+        }
+
+        /* Add a red text color and an "x" when the requirements are wrong */
+        .invalid {
+            color: red;
+        }
+
+        .invalid:before {
+            position: relative;
+            left: -35px;
+            content: "✖";
+        }
+        :focus{
+            outline: none !important;
+            border-color: #5f5df7;
+            box-shadow: 0 0 8px #5f5df7;
+        }
+        #register_btn{
+            width: 30%;
+            margin-left: 130px;
+            background-color:rgb(241, 241, 241);
+            color: rgb(117, 151, 170);
+            font-weight: bold;
+            border: 2px solid rgb(138, 172, 192);
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container">
+        
+
+        <div id="switch">
+            <input type="button" id="register_btn" onclick="myFunction()" value="Register">
+        </div>
+
+
+        <div class="content">
+
+            <div class="login" id="login">
+                <form  action="#" method="post">
+                    <h2>Login</h2>
+                    
+                    <div>
+                        <label for="email">Email</label><br>
+                        <input type="text"name='email' id="email"><br>
+                    </div>
+                    <div>
+                        <label for="password">Password</label><br>
+                        <input type="text"name='password'required autocomplete="off" id="password"><br>
+                    </div>
+                    <div>
+                        <br>
+                        <input type="submit" value="Login">
+                    </div>
+                    </form>
+            </div>
+
+        <div  class="registration" id="registration">
+            <form  action="#" method="post">
+                <h2>Register</h2>
+                <div>
+                    <label for="first_name">First Name</label><br>
+                    <input type="text"><br>
+                </div>
+                <div>
+                    <label for="last_name">Last Name</label><br>
+                    <input type="text" name="last_name" id="last_name"><br>
+                </div>
+                <div>
+                    <label for="email">Email</label><br>
+                    <input type="text"name='email' id="email"><br>
+                </div>
+                <div>
+                    <label for="password">Password</label><br>
+                    <input type="text"name='password'required autocomplete="off" id="password"><br>
+                </div>
+                <div id="message">
+                    <h5>Password must contain the following:</h5>
+                    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                    <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                    <p id="number" class="invalid">A <b>number</b></p>
+                    <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                  </div>
+                       
+                  
+                <div>
+                    <label for="confirm">Password Confirm</label><br>
+                    <input type="text" name="confirm" id="confirm"><br>
+                </div>
+                <div>
+                    <label for="account_type">Select the account type:</label><br>
+                    <input type="radio" id="customer" name="account_type" value="customer">
+                    <label for="customer">Customer</label>
+                    <input type="radio" id="artist" name="account_type" value="artist">
+                    <label for="artist">Artist</label>
+                </div>
+                <div>
+                    <br>
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+          
+        </div>
+        
+        
+    </div>
+    </div>
+  
+    <script>
+        
+
+        function myFunction() {
+            var x = document.getElementById("login");
+            var z = document.getElementById("registration");
+            var btn = document.getElementById("register_btn");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                z.style.display = "none";
+                btn.value = "Register";
+            } else {
+                x.style.display = "none";
+                z.style.display = "block";
+                btn.value = "Login";
+            }
+        }
+        var myInput = document.getElementById("password");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+        
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function() {
+          document.getElementById("message").style.display = "block";
+        }
+        
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function() {
+          document.getElementById("message").style.display = "none";
+        }
+        
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function() {
+          // Validate lowercase letters
+          var lowerCaseLetters = /[a-z]/g;
+          if(myInput.value.match(lowerCaseLetters)) {  
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+          } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+          }
+          
+          // Validate capital letters
+          var upperCaseLetters = /[A-Z]/g;
+          if(myInput.value.match(upperCaseLetters)) {  
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+          } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+          }
+        
+          // Validate numbers
+          var numbers = /[0-9]/g;
+          if(myInput.value.match(numbers)) {  
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+          } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+          }
+          
+          // Validate length
+          if(myInput.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+          } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+          }
+        }
+        </script>
+
+    
+</body>
+</html>
