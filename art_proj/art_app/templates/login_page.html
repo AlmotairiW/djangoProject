@@ -10,7 +10,6 @@
             margin: 0;
             padding: 0;
         }
-      
         .content{
             width: 400px;
             border-radius:8px ;
@@ -142,11 +141,12 @@
             </div>
 
         <div  class="registration" id="registration">
-            <form  action="#" method="post">
+            <form  action="/process_reg" method="post">
+                {% csrf_token %}
                 <h2>Register</h2>
                 <div>
                     <label for="first_name">First Name</label><br>
-                    <input type="text"><br>
+                    <input type="text" name="first_name"><br>
                 </div>
                 <div>
                     <label for="last_name">Last Name</label><br>
@@ -167,8 +167,7 @@
                     <p id="number" class="invalid">A <b>number</b></p>
                     <p id="length" class="invalid">Minimum <b>8 characters</b></p>
                   </div>
-                       
-                  
+
                 <div>
                     <label for="confirm">Password Confirm</label><br>
                     <input type="text" name="confirm" id="confirm"><br>
