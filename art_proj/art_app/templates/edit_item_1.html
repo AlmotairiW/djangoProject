@@ -7,12 +7,14 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/fontAwesome.css">
-        <link rel="stylesheet" href="css/light-box.css">
-        <link rel="stylesheet" href="css/owl-carousel.css">
-        <link rel="stylesheet" href="css/templatemo-style.css">
+        {%load static%}
+        
+        <link rel='stylesheet' href="{% static 'css/bootstrap.min.css' %}">
+        <link rel='stylesheet' href="{% static 'css/bootstrap-theme.min.css' %}">
+        <link rel='stylesheet' href="{% static 'css/fontAwesome.css' %}">
+        <link rel='stylesheet' href="{% static 'css/light-box.css' %}">
+        <link rel='stylesheet' href="{% static 'css/owl-carousel.css' %}">
+        <link rel='stylesheet' href="{% static 'css/templatemo-style.css' %}">
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
@@ -129,38 +131,28 @@
                                     {% csrf_token %}
                                     <div class="col-md-4">
                                         <fieldset>
-                                            <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                                            <input name="title" type="text" class="form-control" id="title" placeholder="Art title..." required="">
                                         </fieldset>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="title" class="form-label">Title:</label>
-                                        <input type="text" id="lname" name="lname" class="form-control">
+                                    <div class="col-md-4">
+                                        <fieldset>
+                                            <textarea name="Description" rows="6" class="form-control" id="description" placeholder="Art description..." required=""></textarea>
+                                        </fieldset>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="desc" class="form-label">Description:</label>
-                                        <input type="text" id="desc" name="desc" class="form-control">
+                                    <div class="col-md-4">
+                                        <fieldset>
+                                            <input name="quantity" type="number" class="form-control" id="quantity" placeholder="quantity" required="">
+                                        </fieldset>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="desc" class="form-label">Description:</label>
-                                        <input type="text" id="desc" name="desc" class="form-control">
+                                    <div class="col-md-4">
+                                        <fieldset>
+                                            <input name="size" type="text" class="form-control" id="size" placeholder="size" required="">
+                                        </fieldset>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="quant" class="form-label">Quantity:</label>
-                                        <input type="text" id="quant" name="quant" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="price" class="form-label">Price:</label>
-                                        <input type="text" id="price" name="price" class="form-control">
-                                    </div>
-                                    <label for="img" class="form-label"> Add an image of your art:</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">Upload</span>
-                                        </div>
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="img">
-                                            <label class="custom-file-label" for="img">Choose file</label>
-                                        </div>
+                                    <div class="col-md-4">
+                                        <fieldset>
+                                            <input name="price" type="number" class="form-control" id="price" max="8" placeholder="price" required="">
+                                        </fieldset>
                                     </div>
                                     <row>
                                         <div class="col-md-12">
@@ -189,10 +181,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
-    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js'%}"></script>
     
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{% static 'js/plugins.js'%}"></script>
+    <script src="{%static 'js/main.js'%}"></script>
+
 
     <script>
         // Hide Header on on scroll down
