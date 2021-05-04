@@ -130,36 +130,51 @@
                             <div class="section-content">
                                 <form action="#" method="POST">
                                     {% csrf_token %}
-                                    <div class="col-md-4">
-                                        <fieldset>
-                                            <input name="title" type="text" class="form-control" id="title" placeholder="Art title..." required="">
-                                        </fieldset>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <fieldset>
+                                                <input name="title" type="text" class="form-control" id="title" placeholder="Art title..." required="">
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <fieldset>
+                                                <textarea name="Description" rows="6" class="form-control" id="description" placeholder="Art description..." required=""></textarea>
+                                            </fieldset>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <fieldset>
-                                            <textarea name="Description" rows="6" class="form-control" id="description" placeholder="Art description..." required=""></textarea>
-                                        </fieldset>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <fieldset>
+                                                <input name="quantity" type="number" class="form-control" id="quantity" placeholder="quantity" required="">
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <fieldset>
+                                                <input name="size" type="text" class="form-control" id="size" placeholder="size" required="">
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <fieldset>
+                                                <input name="price" type="number" class="form-control" id="price" max="8" placeholder="price" required="">
+                                            </fieldset>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <fieldset>
-                                            <input name="quantity" type="number" class="form-control" id="quantity" placeholder="quantity" required="">
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <fieldset>
-                                            <input name="size" type="text" class="form-control" id="size" placeholder="size" required="">
-                                        </fieldset>
-                                    </div>
-                                    
-                                    <div class="col-md-4">
-                                        <fieldset>
-                                            <input name="price" type="number" class="form-control" id="price" max="8" placeholder="price" required="">
-                                        </fieldset>
+                                    <div class="row">
+                                        <label for="img" class="form-label"> Add an image of your art:</label>
+                                        <div class="col md-6">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                            <div class="col md-6">
+                                                <input type="file" class="custom-file-input" id="img">
+                                                <label class="custom-file-label" for="img">Choose file</label>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <fieldset>
-                                                <button type="submit" id="form-submit" class="btn">Add Item</button>
+                                                <button type="submit" id="form-submit" class="btn">Add Item to Gallery</button>
                                             </fieldset>
                                         </div>
                                     </div>
