@@ -19,6 +19,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     
+    <style>
+        .reviewcss{
+            border: 2px solid rgb(181, 165, 197);
+        }
+    </style>
 </head>
 
 <body>
@@ -186,6 +191,20 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- all reviews -->
+                                            <div class="row">
+                                                <p>This Artwork Reviews</p>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        {% for review in reviews %}
+                                                            <p class="reviewcss">{{this_artwork.artist.account.first_name}} <br> 
+                                                                {{review}</p>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     {% endif %}
 
