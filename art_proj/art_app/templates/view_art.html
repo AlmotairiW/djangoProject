@@ -19,7 +19,12 @@
     <link rel='stylesheet' href="{% static 'css/style.css' %}">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-
+    
+    <style>
+        .reviewcss{
+            border: 2px solid rgb(181, 165, 197);
+        }
+    </style>
 </head>
 
 <body>
@@ -35,13 +40,13 @@
         <div id="main-nav" class="collapse navbar-collapse">
             <nav>
                 <ul class="nav navbar-nav">
-                    <li><a href="#top">Home</a></li>
-                    <li><a href="#blog">Login Or Register</a></li>
-                    <li><a href="#featured">Artists Profiles</a></li>
-                    <li><a href="#projects">Art Gallary</a></li>
-                    <li><a href="#video">About Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#logout">Logout</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Login Or Register</a></li>
+                    <li><a href="/all_artists">Artists Profiles</a></li>
+                    <li><a href="/art_gallery">Art Gallary</a></li>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/">Contact Us</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -49,47 +54,47 @@
 
     <div class="sidebar-navigation hidde-sm hidden-xs">
         <div class="logo">
-            <a href="#top">Cloud9<em> Gallary</em></a>
+            <a href="/">Cloud9<em> Gallary</em></a>
         </div>
         <nav>
             <ul>
                 <li>
-                    <a href="#top"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         Home
                     </a>
                 </li>
 
                 <li>
-                    <a href="#blog"><span class="rect"></span><span class="circle"></span>
+                    <a href="#"><span class="rect"></span><span class="circle"></span>
                         Login Or Register
                     </a>
                 </li>
 
                 <li>
-                    <a href="#featured"><span class="rect"></span><span class="circle"></span>
+                    <a href="/all_artists"><span class="rect"></span><span class="circle"></span>
                         Artists Profiles
                     </a>
                 </li>
 
                 <li>
-                    <a href="#projects"><span class="rect"></span><span class="circle"></span>
+                    <a href="/art_gallery"><span class="rect"></span><span class="circle"></span>
                         Art Gallary
                     </a>
                 </li>
 
                 <li>
-                    <a href="#"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         About Us
                     </a>
                 </li>
 
                 <li>
-                    <a href="#contact"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         Contact Us
                     </a>
                 </li>
                 <li>
-                    <a href="#logout"><span class="rect"></span><span class="circle"></span>
+                    <a href="/logout"><span class="rect"></span><span class="circle"></span>
                         Logout
                     </a>
                 </li>
@@ -202,7 +207,13 @@
                                             Dimensions: {{this_artwork.size}}
                                         </p>
                                         <p>
+<<<<<<< HEAD
                                             Price: {{this_artwork.price}}$
+=======
+                                            Price: {{this_artwork.price}}
+                                            <!-- test buy btn -->
+                                            <a href="/buy_artwork/{{this_artwork.id}}"><i class='fas fa-shopping-cart' ></i></a>
+>>>>>>> a9f0794915a58404f72cf3c7f41fe6115094bd21
                                         </p>
                                     </div>
                                     <div class="row">
@@ -210,6 +221,7 @@
                                             This arkwork done by <a href="/show_artist_profile/{{this_user.account.id}}" > {{this_artwork.artist.account.first_name}} {{this_artwork.artist.account.last_name}}  </a>
                                         </p>
                                     </div>
+<<<<<<< HEAD
                                     {% if this_user.account.id == this_artwork.artist.account.id %}
                                     <form action="/delete_artwork/{{this_artwork.id}}" method="POST">
                                         {% csrf_token %}
@@ -222,6 +234,9 @@
                                     </div>
                                     </form>
                                 {% endif %}
+=======
+                                    <!-- reviews write & show -->
+>>>>>>> a9f0794915a58404f72cf3c7f41fe6115094bd21
                                     {% if this_user.account.is_customer == True %}
                                         <div class="rev">
                                             <div class="row">
@@ -237,13 +252,31 @@
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <fieldset>
+                                                                {% if this_artwork in this_artwork.customer %}
                                                                 <button type="submit" id="form-submit" class="btn">Submit
                                                                     Review</button>
+                                                                {% else %}
+                                                                <p style="color: rgb(205, 96, 92);">Review is for who purchase this Artwork!</p>
+                                                                {% endif %}
                                                             </fieldset>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- all reviews -->
+                                            <div class="row">
+                                                <p>This Artwork Reviews:</p>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        {% for review in reviews %}
+                                                            <p class="reviewcss">{{this_artwork.artist.account.first_name}} <br> 
+                                                                {{review}}</p>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                         </div>
                                     {% endif %}
 
@@ -266,9 +299,9 @@
         </section>
 
         <section class="footer">
-            <p>Copyright &copy; 2019 Company Name
-
-                . Design: TemplateMo</p>
+            <p>Copyright &copy; 2021 Cloud9  
+                
+            . Saudi Digital Academy : Coding Dojo</p>
         </section>
     </div>
 
@@ -327,7 +360,8 @@
     </script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-
+    <!-- cart -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </body>
 
 </html>

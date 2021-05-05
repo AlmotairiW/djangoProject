@@ -22,8 +22,11 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     </div>
     </div>
+=======
+>>>>>>> a9f0794915a58404f72cf3c7f41fe6115094bd21
     <header class="nav-down responsive-nav hidden-lg hidden-md">
         <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
             <span class="sr-only"></span>
@@ -36,13 +39,13 @@
         <div id="main-nav" class="collapse navbar-collapse">
             <nav>
                 <ul class="nav navbar-nav">
-                    <li><a href="#top">Home</a></li>
-                    <li><a href="#blog">Login Or Register</a></li>
-                    <li><a href="#featured">Artists Profiles</a></li>
-                    <li><a href="#projects">Art Gallary</a></li>
-                    <li><a href="#video">About Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#logout">Logout</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Login Or Register</a></li>
+                    <li><a href="/all_artists">Artists Profiles</a></li>
+                    <li><a href="/art_gallery">Art Gallary</a></li>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/">Contact Us</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -50,47 +53,47 @@
 
     <div class="sidebar-navigation hidde-sm hidden-xs">
         <div class="logo">
-            <a href="#top">Cloud9<em> Gallary</em></a>
+            <a href="/">Cloud9<em> Gallary</em></a>
         </div>
         <nav>
             <ul>
                 <li>
-                    <a href="#top"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         Home
                     </a>
                 </li>
 
                 <li>
-                    <a href="#blog"><span class="rect"></span><span class="circle"></span>
+                    <a href="#"><span class="rect"></span><span class="circle"></span>
                         Login Or Register
                     </a>
                 </li>
 
                 <li>
-                    <a href="#featured"><span class="rect"></span><span class="circle"></span>
+                    <a href="/all_artists"><span class="rect"></span><span class="circle"></span>
                         Artists Profiles
                     </a>
                 </li>
 
                 <li>
-                    <a href="#projects"><span class="rect"></span><span class="circle"></span>
+                    <a href="/art_gallery"><span class="rect"></span><span class="circle"></span>
                         Art Gallary
                     </a>
                 </li>
 
                 <li>
-                    <a href="#"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         About Us
                     </a>
                 </li>
 
                 <li>
-                    <a href="#contact"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         Contact Us
                     </a>
                 </li>
                 <li>
-                    <a href="#logout"><span class="rect"></span><span class="circle"></span>
+                    <a href="/logout"><span class="rect"></span><span class="circle"></span>
                         Logout
                     </a>
                 </li>
@@ -105,6 +108,7 @@
         </ul>
     </div>
 
+<<<<<<< HEAD
     <div class="page-content">
         <section id="video" class="content-section">
             <div class="row">
@@ -150,6 +154,43 @@
                                             </div>
                                         </div>
                                     </form>
+=======
+        <div class="page-content">
+            <section id="video" class="content-section">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-heading">
+                            <h1>Welcome<em> {{this_user.account.first_name}} </em></h1>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="accent-button button">
+                                <a href="#"> Go to Gallary</a>
+                                <div class="col-md-4">
+                                    <div class="accent-button button">
+                                        <a href="#"> Add Item</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="accent-button button">
+                                        <a href="#"> Biography Page</a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="section-content">
+                                        <p> Please add an image of your Artwork:</p>
+                                        <form action="/create_item_img/{{this_artwork.id}}" method="POST" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            {{ form.as_p }}
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <fieldset>
+                                                        <button type="submit" id="form-submit" class="btn">Add Item to Gallery</button>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+>>>>>>> a9f0794915a58404f72cf3c7f41fe6115094bd21
                                 </div>
                             </div>
                         </div>
@@ -161,6 +202,7 @@
                         </div>
                     
                 </div>
+<<<<<<< HEAD
         </section>
 
         <section class="footer">
@@ -169,6 +211,16 @@
                 . Design: TemplateMo</p>
         </section>
     </div>
+=======
+            </section>
+            
+            <section class="footer">
+                <p>Copyright &copy; 2021 Cloud9  
+                
+                . Saudi Digital Academy : Coding Dojo</p>
+            </section>
+        </div>
+>>>>>>> a9f0794915a58404f72cf3c7f41fe6115094bd21
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

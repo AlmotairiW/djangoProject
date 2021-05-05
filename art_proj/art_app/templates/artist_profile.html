@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>View Artwork</title>
+    <title>Artist Profile</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,13 +39,13 @@
         <div id="main-nav" class="collapse navbar-collapse">
             <nav>
                 <ul class="nav navbar-nav">
-                    <li><a href="#top">Home</a></li>
-                    <li><a href="#blog">Login Or Register</a></li>
-                    <li><a href="#featured">Artists Profiles</a></li>
-                    <li><a href="#projects">Art Gallary</a></li>
-                    <li><a href="#video">About Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#logout">Logout</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Login Or Register</a></li>
+                    <li><a href="/all_artists">Artists Profiles</a></li>
+                    <li><a href="/art_gallery">Art Gallary</a></li>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/">Contact Us</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -53,47 +53,47 @@
 
     <div class="sidebar-navigation hidde-sm hidden-xs">
         <div class="logo">
-            <a href="#top">Cloud9<em> Gallary</em></a>
+            <a href="/">Cloud9<em> Gallary</em></a>
         </div>
         <nav>
             <ul>
                 <li>
-                    <a href="#top"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         Home
                     </a>
                 </li>
 
                 <li>
-                    <a href="#blog"><span class="rect"></span><span class="circle"></span>
+                    <a href="#"><span class="rect"></span><span class="circle"></span>
                         Login Or Register
                     </a>
                 </li>
 
                 <li>
-                    <a href="#featured"><span class="rect"></span><span class="circle"></span>
+                    <a href="/all_artists"><span class="rect"></span><span class="circle"></span>
                         Artists Profiles
                     </a>
                 </li>
 
                 <li>
-                    <a href="#projects"><span class="rect"></span><span class="circle"></span>
+                    <a href="/art_gallery"><span class="rect"></span><span class="circle"></span>
                         Art Gallary
                     </a>
                 </li>
 
                 <li>
-                    <a href="#"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         About Us
                     </a>
                 </li>
 
                 <li>
-                    <a href="#contact"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         Contact Us
                     </a>
                 </li>
                 <li>
-                    <a href="#logout"><span class="rect"></span><span class="circle"></span>
+                    <a href="/logout"><span class="rect"></span><span class="circle"></span>
                         Logout
                     </a>
                 </li>
@@ -191,7 +191,11 @@
                                                     {% if item != this_artist.artworks.first %}
                                                         {% for img in item.images.all %}
                                                         <div class="item">
+<<<<<<< HEAD
                                                         <a href="/artwork_info/{{item.id}}"><img src="{{img.image.url}}"style="width:100%;"></a> 
+=======
+                                                        <a href="/artwork_info/{{item.id}}"><img src="{{img.image.url}}"style="width:100%;"></a>
+>>>>>>> a9f0794915a58404f72cf3c7f41fe6115094bd21
                                                         </div>
                                                         {% endfor %}
                                                     {% endif %}
@@ -230,9 +234,9 @@
         </section>
 
         <section class="footer">
-            <p>Copyright &copy; 2019 Company Name
-
-                . Design: TemplateMo</p>
+            <p>Copyright &copy; 2021 Cloud9  
+                
+            . Saudi Digital Academy : Coding Dojo</p>
         </section>
     </div>
 
