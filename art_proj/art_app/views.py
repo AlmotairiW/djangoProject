@@ -214,7 +214,6 @@ def create_item_img(request, artwork_id):
         this_image.artwork = this_artwork
         this_image.save()
         form.save()
-<<<<<<< HEAD
         print(this_image.image.url) #debugging
     return redirect(f'/artwork_info/{artwork_id}')# redirect to view_art
 
@@ -253,8 +252,7 @@ def delete_artwork(request, artwork_id):
             return redirect('/sucsess')
     return redirect('/')
 
-=======
-        print(this_image.image.url)
+    print(this_image.image.url)
     return redirect('/sucsess')
 
 def all_artists(request):
@@ -263,4 +261,3 @@ def all_artists(request):
 def logout(request):
     request.session.flush()
     return redirect("/")
->>>>>>> a9f0794915a58404f72cf3c7f41fe6115094bd21

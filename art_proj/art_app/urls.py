@@ -22,14 +22,11 @@ urlpatterns = [
     path('buy_artwork/<artwork_id>', views.buy_artwork),
     path('add_review/<artwork_id>', views.add_review),
     path('show_artist_profile/<artist_id>', views.show_artist_profile),
-<<<<<<< HEAD
     path('edit_artist_bio/<int:artist_id>', views.edit_artist_bio),
     path('update_artist_bio/<int:artist_id>', views.update_artist_bio),
     
-=======
     path('all_artists', views.all_artists),
     path('logout', views.logout),
->>>>>>> a9f0794915a58404f72cf3c7f41fe6115094bd21
 ]
 
 
