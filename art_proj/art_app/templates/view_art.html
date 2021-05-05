@@ -184,8 +184,12 @@
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <fieldset>
+                                                                {% if this_artwork in this_artwork.customer %}
                                                                 <button type="submit" id="form-submit" class="btn">Submit
                                                                     Review</button>
+                                                                {% else %}
+                                                                <p>Review is for who purchase this Artwork</p>
+                                                                {% endif %}
                                                             </fieldset>
                                                         </div>
                                                     </div>
@@ -199,7 +203,7 @@
                                                         {% for review in reviews %}
                                                             <p class="reviewcss">{{this_artwork.artist.account.first_name}} <br> 
                                                                 {{review}}</p>
-                                                        {% endif %}
+                                                        {% endfor %}
                                                     </div>
                                                 </div>
                                             </div>
