@@ -19,6 +19,10 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
+    <!-- for slide show -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -135,7 +139,7 @@
                         <div class="tabs-content">
                             <div class="wrapper">
                                 <div class="tabs clearfix" data-tabgroup="first-tab-group">
-                                    <h3>Name: {{this_artist.account.first_name}} {{this_artist.account.last_name}}</h3>
+                                    <h3>Artist: {{this_artist.account.first_name}} {{this_artist.account.last_name}}</h3>
                                 </div>
                                 <div class="text-content">
                                     <div class="row">
@@ -154,11 +158,59 @@
                                             <ul>
                                                 {% for item in this_artist.artworks.all %}
                                                     <li>{{item.title}} | <a href="/artwork_info/{{item.id}}"> view</a></li>
-                                            {% endfor %}
+                                                {% endfor %}
                                             </ul>
                                         </p>
                                     </div>
 
+                                    <!-- test slide show -->
+                                    <div class="row">
+                                        
+                                   
+
+                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators">
+                                          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                          <li data-target="#myCarousel" data-slide-to="1"></li>
+                                          <li data-target="#myCarousel" data-slide-to="2"></li>
+                                        </ol>
+                                    
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner">
+                                            <!-- <div class="item active">
+                                                <h3>{{this_artist.first_name}}</h3>
+                                            </div> -->
+                                            <div class="item active">
+                                                <img src="{{this_artist.artworks.first.images.first.image.url}}"style="width:100%;">
+                                            </div>
+                                          
+                                            <p>
+                                                {% for item in this_artist.artworks.all %}
+                                                    {% if item != this_artist.artworks.first %}
+                                                        {% for img in item.images.all %}
+                                                        <div class="item">
+                                                        <img src="{{img.image.url}}"style="width:100%;">
+                                                        </div>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </p>
+                                           
+                        
+                                        </div>
+                                         <!-- Left and right controls -->
+                                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+
+                                    </div>
+                                    <!-- end of test slide show -->
                                 </div>
                             </div>
                         </div>
