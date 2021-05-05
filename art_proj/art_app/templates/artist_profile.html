@@ -109,13 +109,13 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="accent-button button">
-                        <a href="/art_gallery"> Go to Gallary</a>
+                        <a href="#"> Go to Gallary</a>
                     </div>
                 </div>
-                {% if this_user.account.id == this_artwork.artist.account.id %}
+                {% if this_user.account.id == this_artist.account.id %}
                     <div class="col-md-4">
                         <div class="accent-button button">
-                            <a href="/add_item"> Add Item</a>
+                            <a href="/edit_artist_bio/{{this_artist.account.id}}"> Edit Profile</a>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -128,65 +128,36 @@
                 <div class="col-md-12">
 
                     <div class="section-heading">
-                        <h1>{{this_artwork.artist.account.first_name}} <em> Artwork </em></h1>
-                        {% if this_user.account.is_artist == False %}
-                        <h1> Welcome, <em> {{this_user.account.first_name}} </em></h1>
-                        {% endif %}
+                        <h1><em> {{this_artist.account.first_name}} {{this_artist.account.last_name}} Profile</em></h1>
 
                     </div>
                     <div id="blog" class="section-content">
                         <div class="tabs-content">
                             <div class="wrapper">
                                 <div class="tabs clearfix" data-tabgroup="first-tab-group">
-                                    <h3>{{this_artwork.title}}</h3>
+                                    <h3>Name: {{this_artist.account.first_name}} {{this_artist.account.last_name}}</h3>
                                 </div>
                                 <div class="text-content">
-                                    {% for img in this_artwork.images.all %}
-                                        <img src="{{img.image.url}}">
-                                    {% endfor %}
                                     <div class="row">
                                         <p>
-                                            Description: {{this_artwork.description}}
+                                            City: {{this_artist.account.city}}
                                         </p>
                                     </div>
                                     <div class="row">
                                         <p>
-                                            Size: {{this_artwork.size}}
-                                        </p>
-                                        <p>
-                                            Price: {{this_artwork.price}}
+                                            About Me: <h6>{{This.artist.bio}}</h6>
                                         </p>
                                     </div>
                                     <div class="row">
                                         <p>
-                                            This arkwork done by <a href="/show_artist_profile/{{this_user.account.id}}" > {{this_artwork.artist.account.first_name}} {{this_artwork.artist.account.last_name}}  </a>
+                                            {{this_artist.account.first_name}} Artworks:
+                                            <ul>
+                                                {% for item in this_artist.artworks.all %}
+                                                    <li>{{item.title}} | <a href="/artwork_info/{{item.id}}"> view</a></li>
+                                            {% endfor %}
+                                            </ul>
                                         </p>
                                     </div>
-                                    {% if this_user.account.is_customer == True %}
-                                        <div class="rev">
-                                            <div class="row">
-                                                <p>Tell the artist your review: </p>
-                                                <div class="row">
-                                                    <div class="col-md-12 inputGroupContainer">
-                                                        <div class="input-group">
-                                                            <span class="input-group-addon"><i
-                                                                    class="fa fa-pencil"></i></span>
-                                                            <textarea class="form-control" id="review" rows="5"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <fieldset>
-                                                                <button type="submit" id="form-submit" class="btn">Submit
-                                                                    Review</button>
-                                                            </fieldset>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-
 
                                 </div>
                             </div>

@@ -107,13 +107,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-heading">
-                            <h1>Welcome<em> ArtistName </em></h1>
+                            <h1>Welcome<em> {{this_user.account.first_name}} </em></h1>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad neque quisquam asperiores impedit similique quas animi distinctio, blanditiis soluta excepturi laboriosam, nulla praesentium unde a eos qui? Esse, autem nostrum?
                                 Praesent pellentesque efficitur magna, sed pellentesque neque malesuada vitae.</p>
                         </div>
                         <div class="col-md-4">
                             <div class="accent-button button">
-                                <a href="#"> Go to Gallary</a>
+                                <a href="/art_gallary"> Go to Gallary</a>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -123,7 +123,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="accent-button button">
-                                <a href="#"> Biography Page</a>
+                                <a href="/show_artist_profile/{{this_user.account.id}}"> Biography Page</a>
                             </div>
                         </div>
                         <div class="item">
@@ -134,22 +134,25 @@
                                             <tr>
                                                 <th>Item title</th>
                                                 <th>Date Added</th>
-                                                <th>Quantity purchased</th>
+                                                <th>Quantity</th>
                                                 <th>Price</th>
-                                                <th>Likes</th>
+                                                <th>number of purchases</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{for this_user.art in all_art }}
-                                            <tr>
-                                                <td>{{title}}</td>
-                                                <td>{{created_at}}</td>
-                                                <td>{{art_quantity}}</td>
-                                                <td>{{art_price}}</td>
-                                                <td><a href="#">20</a></td>
-                                                <td><a href="#">view</a> | <a href="edit_item.html">edit</a> | <a href="#">delete</a></td>
-                                            </tr>
+                                            {% for item in this_user.artworks.all %}
+                                                    <tr>
+                                                        <td>{{item.title}}</td>
+                                                        <td>{{item.created_at|date:'M d Y'}}</td>
+
+                                                        <td>{{item.quantity}}</td>
+                                                        <td>{{item.price}} $</td>
+                                                        <td><a href="#">{{item.customer.all|length}}</a></td>
+                                                        <td><a href="/artwork_info/{{item.id}}">view</a> | <a href="edit_item.html">edit</a> | <a href="#">delete</a></td>
+                                                    </tr>
+                                            {% endfor %}
+                                        
                                         </tbody>
                                     </table>
                                 </div>

@@ -18,18 +18,21 @@ def index(request):
 # -artist bio
 
 def artwork_info(request ,artwork_id):
-    if request.session['login'] == True:
-        this_customer=Customer.objects.get(id=request.session['uid'])
+    if 'uid' in request.session:
+        this_user = Account.objects.get( id = request.session['uid'])
+        if this_user.is_customer:
+            this_user=Customer.objects.get(account_id =request.session['uid'])# if we want to access customer OR artist model we use account_id =
+        else:
+            this_user = Artist.objects.get(account_id = request.session['uid'])
     else:
-        this_customer=null #if login>true,use "this_cus"else:redirect to login if need
+        return redirect('/') # this_customer=null #if login>true,use "this_cus"else:redirect to login if need
 
     context = {
-        "this_customer" : this_customer,
-        "reviews" : Artwork.objects.get(id=artwork_id).reviews,
-        "this_artwork" : Artwork.objects.get(id=artwork_id)
+        "this_user" : this_user,
+        "reviews" : Artwork.objects.get(id=artwork_id).reviews.all(),
+        "this_artwork" : Artwork.objects.get(id=artwork_id),
     }
-    return render(request ,'view_art',context)
-    # return render(request, 'artwork_info.html', context)
+    return render(request ,'view_art.html',context)
 
 # check quantity in html ,if not should be here
 def buy_artwork(request,artwork_id):
@@ -69,8 +72,19 @@ def add_review(request,artwork_id):
     return redirect(f'/artwork_info/{artwork_id}')
 
 def show_artist_profile(request,artist_id):
+    if 'uid' in request.session:
+        this_user = Account.objects.get( id = request.session['uid'])
+        if this_user.is_customer:
+            this_user=Customer.objects.get(account_id =request.session['uid'])# if we want to access customer OR artist model we use account_id =
+        else:
+            this_user = Artist.objects.get(account_id = request.session['uid'])
+    else:
+        return redirect('/') 
+
     context = {
-        "this_artist": Artist.objects.get(id=artist_id),
+        "this_artist": Artist.objects.get(account_id=artist_id),
+        "this_user": this_user,
+        
     }
     return render(request, "artist_profile.html", context)
     # #####
@@ -111,7 +125,7 @@ def sucsess(request):
         context = {
             "this_user": Artist.objects.get(account_id=request.session['uid']),
         }
-        return render(request, "artist_dashboard.html", context)
+        return render(request, "artist_dashboard_1.html", context)
     else:  
         this_account = Customer.objects.get(account_id=request.session['uid'])
         context = {

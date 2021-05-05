@@ -1,4 +1,8 @@
+
+from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 urlpatterns = [
     path('', views.index),
@@ -12,6 +16,10 @@ urlpatterns = [
     path('artwork_info/<artwork_id>', views.artwork_info), # render a one artwork details page
     path('buy_artwork/<artwork_id>', views.buy_artwork),
     path('add_review/<artwork_id>', views.add_review),
-    path('show_artist_profile/<artwork_id>', views.show_artist_profile),
+    path('show_artist_profile/<artist_id>', views.show_artist_profile),
     
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
