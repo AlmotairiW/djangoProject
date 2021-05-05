@@ -251,13 +251,9 @@ def delete_artwork(request, artwork_id):
             Artwork.objects.get( id = artwork_id).delete()
             return redirect('/sucsess')
     return redirect('/')
-<<<<<<< HEAD
-    
-=======
 
     print(this_image.image.url)
     return redirect('/sucsess')
->>>>>>> 754a12337010a92c22ee0fa7e9846ac05e6072c7
 
 def all_artists(request):
     return render(request, "all_artists.html")

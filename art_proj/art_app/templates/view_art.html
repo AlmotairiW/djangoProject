@@ -207,13 +207,10 @@
                                             Dimensions: {{this_artwork.size}}
                                         </p>
                                         <p>
-<<<<<<< HEAD
                                             Price: {{this_artwork.price}}$
-=======
-                                            Price: {{this_artwork.price}}
+                        
                                             <!-- test buy btn -->
                                             <a href="/buy_artwork/{{this_artwork.id}}"><i class='fas fa-shopping-cart' ></i></a>
->>>>>>> a9f0794915a58404f72cf3c7f41fe6115094bd21
                                         </p>
                                     </div>
                                     <div class="row">
@@ -221,7 +218,6 @@
                                             This arkwork done by <a href="/show_artist_profile/{{this_user.account.id}}" > {{this_artwork.artist.account.first_name}} {{this_artwork.artist.account.last_name}}  </a>
                                         </p>
                                     </div>
-<<<<<<< HEAD
                                     {% if this_user.account.id == this_artwork.artist.account.id %}
                                     <form action="/delete_artwork/{{this_artwork.id}}" method="POST">
                                         {% csrf_token %}
@@ -234,9 +230,7 @@
                                     </div>
                                     </form>
                                 {% endif %}
-=======
                                     <!-- reviews write & show -->
->>>>>>> a9f0794915a58404f72cf3c7f41fe6115094bd21
                                     {% if this_user.account.is_customer == True %}
                                         <div class="rev">
                                             <div class="row">
