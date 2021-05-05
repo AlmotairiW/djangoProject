@@ -39,6 +39,7 @@
                     <li><a href="#projects">Art Gallary</a></li>
                     <li><a href="#video">About Us</a></li>
                     <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -46,7 +47,7 @@
     
     <div class="sidebar-navigation hidde-sm hidden-xs">
         <div class="logo">
-            <a href="#top">Cloud9<em> Gallary</em></a>
+            <a href="/">Cloud9<em> Gallary</em></a>
         </div>
         <nav>
             <ul>
@@ -83,6 +84,11 @@
                 <li>
                     <a href="#contact"><span class="rect"></span><span class="circle"></span>
                         Contact Us
+                    </a>
+                </li>
+                <li>
+                    <a href="/logout"><span class="rect"></span><span class="circle"></span>
+                        Logout
                     </a>
                 </li>
             </ul>
@@ -149,45 +155,116 @@
         </div>
 
         <div class="page-content">
+            <p></p>
+            <p></p>
             <section id="blog" class="content-section">
                 <div class="section-heading">
-                    <h1> <a href="/login">Login</a></h1>
-                    <h1> <a href="/process_reg">Register</a></h1>
+                    <div class="wraper">
+                        <a href="/login"><h1><em>Login</em></h1></a><br>
+                        <a href="/process_reg"><h1><em>Register</em></h1></a>
+                        <p>Here all Artists are welcome to display their art and read customer's reviews. 
+                        <br>You can also Register as a customer and purchase different arts pieces.</p>
+                    </div>
                 </div>
-           </section>
-        
-           
+            </section>
+            
             <section id="featured" class="content-section">
                 <div class="section-heading">
-                    <h1>Artists<br><em>Profiles</em></h1>
-                    <p>Praesent pellentesque efficitur magna, Praesent pellentesque efficitur magna,
-                    <br>sed pellentesque neque malesuada vitae.Praesent pellentesque efficitur magna.</p>
+                    <a href="#"><h1><em>Artists<br>Profiles</em></h1></a>
+                    <p>Here you can view all the artists signed up in <em>cloud9</em><br> and view thier art Pieces.</p>
                 </div>
 
                 <div class="section-content">
                     <div class="owl-carousel owl-theme">
+                        <!-- for artist in all_artists -->
                         <div class="item">
                             <div class="image">
-                                <img src="img/featured_1.jpg" alt="">
+                                <img src="{% static 'img/featured_1.jpg'%}" alt="">
                                 <div class="featured-button button">
-                                    <a href="#projects">Continue Reading</a>
+                                    <a href="/show_artist_profile/<artist_id>">View Artist Profile</a>
                                 </div>
                             </div>
                             <div class="text-content">
-                                <h4>Lorem ipsum dolor</h4>
-                                <span>Proin et sapien</span>
-                                <p>#1 You are allowed to use Sentra Template for your business or client websites. You can use it for commercial or non-commercial or educational purposes.</p>
+                                <h4>Artist name</h4>
+                                <span>artist city</span>
+                                <p>Artist bio</p>
                             </div>
                         </div>
+                        <div class="item">
+                            <div class="image">
+                                <img src="{% static 'img/featured_1.jpg'%}" alt="">
+                                <div class="featured-button button">
+                                    <a href="/show_artist_profile/<artist_id>">View Artist Profile</a>
+                                </div>
+                            </div>
+                            <div class="text-content">
+                                <h4>Artist name</h4>
+                                <span>artist city</span>
+                                <p>Artist bio</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="image">
+                                <img src="{% static 'img/featured_1.jpg'%}" alt="">
+                                <div class="featured-button button">
+                                    <a href="/show_artist_profile/<artist_id>">View Artist Profile</a>
+                                </div>
+                            </div>
+                            <div class="text-content">
+                                <h4>Artist name</h4>
+                                <span>artist city</span>
+                                <p>Artist bio</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="image">
+                                <img src="{% static 'img/featured_1.jpg'%}" alt="">
+                                <div class="featured-button button">
+                                    <a href="/show_artist_profile/<artist_id>">View Artist Profile</a>
+                                </div>
+                            </div>
+                            <div class="text-content">
+                                <h4>Artist name</h4>
+                                <span>artist city</span>
+                                <p>Artist bio</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="image">
+                                <img src="{% static 'img/featured_1.jpg'%}" alt="">
+                                <div class="featured-button button">
+                                    <a href="/show_artist_profile/<artist_id>">View Artist Profile</a>
+                                </div>
+                            </div>
+                            <div class="text-content">
+                                <h4>Artist name</h4>
+                                <span>artist city</span>
+                                <p>Artist bio</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="image">
+                                <img src="{% static 'img/featured_1.jpg'%}" alt="">
+                                <div class="featured-button button">
+                                    <a href="/show_artist_profile/<artist_id>">View Artist Profile</a>
+                                </div>
+                            </div>
+                            <div class="text-content">
+                                <h4>Artist name</h4>
+                                <span>artist city</span>
+                                <p>Artist bio</p>
+                            </div>
+                        </div>
+                        <!-- end for -->
                     </div>
                 </div>
             </section>
 
             <section id="projects" class="content-section">
                 <div class="section-heading">
-                    <a href="/art_gallary"> <h1>Art<br><em>Gallary</em></h1> </a>
-                    <p>Praesent pellentesque efficitur magna, sed pellentesque neque malesuada vitae.
-                    <br>sed pellentesque neque malesuada vitae.sed pellentesque neque malesuada vitae.</p>
+                    <a href="/art_gallary"><h1>Arts<br><em>Gallary</em></h1></a>
+                    <p>This section contains all the art pieces displayed in the Gallary. 
+                    <br>Where you can view or purchase different paintings</p>
                 </div>
 
                 <div class="section-content">
@@ -240,19 +317,16 @@
                     <div class="col-md-12">
                         <div class="section-heading">
                             <h1>About US <em>Cloud9</em> Group.</h1>
-                            <p>Praesent pellentesque efficitur magna, sed pellentesque neque malesuada vitae.</p>
+                            <p>Our group idea is to build a platform for the <em>Artists</em> to connect with the customers.</p>
                         </div>
                         <div class="text-content">
-                            <p>ipsome Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum dignissimos maxime voluptate illo nemo iste quia, distinctio voluptatem temporibus provident iusto voluptatum odio reprehenderit eos 
-                                beatae repellat quae commodi obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                                Impedit quaerat, dolore modi soluta ullam reiciendis voluptatibus nesciunt quas expedita. Omnis autem quaerat dolorem sapiente repellendus rem dolore nostrum deserunt nam.
-                                In eget ipsum sed lorem vehicula luctus. Curabitur non dolor rhoncus, hendrerit justo sit amet, vestibulum turpis. Pellentesque id auctor tellus, vel ultricies augue. Duis condimentum aliquet blandit. 
-                                Fusce rhoncus et eros ut pharetra. Phasellus convallis ultricies ligula ac gravida. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa enim cupiditate tempora adipisci laborum praesentium eveniet saepe quam 
-                                doloribus esse necessitatibus animi iste nisi debitis maxime deserunt temporibus, similique facere! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, maiores? Maxime amet nesciunt eveniet vero mollitia, 
-                                molestiae eaque corporis ab ut enim distinctio debitis voluptate est id quod harum voluptates?</p>
-                        </div>
-                        <div class="accent-button button">
-                            <a href="#blog">Continue Reading</a>
+                            <p>We are CLOUD9, and we joined the Saudi Digital Academy | Coding Dojo aspiring to be FullStack developers  Our names:<br>
+                                Abeer Alamri.<br>
+                                Reem.<br>
+                                Somaiah Alsoulami.<br>
+                                Waleed Almotairi.<br>
+                                <br>
+                                </p>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -273,7 +347,7 @@
                         
                     </div>
                     <div class="section-content">
-                        <form id="contact" action="mailto" method="post">
+                        <form id="contact" action="mailto:contact@cloud9.com" method="post">
                             <div class="row">
                                 <div class="col-md-4">
                                     <fieldset>
@@ -310,9 +384,9 @@
                 </div>
             </section>
             <section class="footer">
-                <p>Copyright &copy; 2019 Company Name 
+                <p>Copyright &copy; 2021 Cloud9  
                 
-                . Design: TemplateMo</p>
+                    . Saudi Digital Academy : Coding Dojo</p>
             </section>
         </div>
 

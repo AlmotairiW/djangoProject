@@ -186,3 +186,7 @@ def create_item_img(request, id):
         form.save()
         print(this_image.image.url)
     return redirect('/sucsess')
+
+def logout(request):
+    request.session.flush()
+    return redirect("/")

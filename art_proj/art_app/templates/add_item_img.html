@@ -21,9 +21,7 @@
     </head>
 
 <body>
-                              </div>
-                        </div>
-     <header class="nav-down responsive-nav hidden-lg hidden-md">
+    <header class="nav-down responsive-nav hidden-lg hidden-md">
         <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
             <span class="sr-only"></span>
             <span class="icon-bar"></span>
@@ -35,13 +33,13 @@
         <div id="main-nav" class="collapse navbar-collapse">
             <nav>
                 <ul class="nav navbar-nav">
-                    <li><a href="#top">Home</a></li>
-                    <li><a href="#blog">Login Or Register</a></li>
-                    <li><a href="#featured">Artists Profiles</a></li>
-                    <li><a href="#projects">Art Gallary</a></li>
-                    <li><a href="#video">About Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#logout">Logout</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Login Or Register</a></li>
+                    <li><a href="/">Artists Profiles</a></li>
+                    <li><a href="/art_gallery">Art Gallary</a></li>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/">Contact Us</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 </ul>
             </nav>
         </div>
@@ -49,47 +47,47 @@
     
     <div class="sidebar-navigation hidde-sm hidden-xs">
         <div class="logo">
-            <a href="#top">Cloud9<em> Gallary</em></a>
+            <a href="/">Cloud9<em> Gallary</em></a>
         </div>
         <nav>
             <ul>
                 <li>
-                    <a href="#top"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         Home
                     </a>
                 </li>
 
                 <li>
-                    <a href="#blog"><span class="rect"></span><span class="circle"></span>
+                    <a href="#"><span class="rect"></span><span class="circle"></span>
                         Login Or Register
                     </a>
                 </li>
 
                 <li>
-                    <a href="#featured"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         Artists Profiles
                     </a>
                 </li>
 
                 <li>
-                    <a href="#projects"><span class="rect"></span><span class="circle"></span>
+                    <a href="/art_gallery"><span class="rect"></span><span class="circle"></span>
                         Art Gallary
                     </a>
                 </li>
 
                 <li>
-                    <a href="#"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         About Us
                     </a>
                 </li>
 
                 <li>
-                    <a href="#contact"><span class="rect"></span><span class="circle"></span>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
                         Contact Us
                     </a>
                 </li>
                 <li>
-                    <a href="#logout"><span class="rect"></span><span class="circle"></span>
+                    <a href="/logout"><span class="rect"></span><span class="circle"></span>
                         Logout
                     </a>
                 </li>
@@ -110,36 +108,36 @@
                     <div class="col-md-12">
                         <div class="section-heading">
                             <h1>Welcome<em> {{this_user.account.first_name}} </em></h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad neque quisquam asperiores impedit similique quas animi distinctio, blanditiis soluta excepturi laboriosam, nulla praesentium unde a eos qui? Esse, autem nostrum?
-                                Praesent pellentesque efficitur magna, sed pellentesque neque malesuada vitae.</p>
                         </div>
                         <div class="col-md-4">
                             <div class="accent-button button">
                                 <a href="#"> Go to Gallary</a>
-                     <div class="col-md-4">
-                            <div class="accent-button button">
-                                <a href="#"> Add Item</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="accent-button button">
-                                <a href="#"> Biography Page</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="section-content">
-                                <p> Please add an image of your Artwork:</p>
-                                <form action="/create_item_img/{{this_artwork.id}}" method="POST" enctype="multipart/form-data">
-                                    {% csrf_token %}
-                                    {{ form.as_p }}
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <fieldset>
-                                                <button type="submit" id="form-submit" class="btn">Add Item to Gallery</button>
-                                            </fieldset>
-                                        </div>
+                                <div class="col-md-4">
+                                    <div class="accent-button button">
+                                        <a href="#"> Add Item</a>
                                     </div>
-                                </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="accent-button button">
+                                        <a href="#"> Biography Page</a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="section-content">
+                                        <p> Please add an image of your Artwork:</p>
+                                        <form action="/create_item_img/{{this_artwork.id}}" method="POST" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            {{ form.as_p }}
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <fieldset>
+                                                        <button type="submit" id="form-submit" class="btn">Add Item to Gallery</button>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -150,9 +148,9 @@
             </section>
             
             <section class="footer">
-                <p>Copyright &copy; 2019 Company Name 
+                <p>Copyright &copy; 2021 Cloud9  
                 
-                . Design: TemplateMo</p>
+                . Saudi Digital Academy : Coding Dojo</p>
             </section>
         </div>
     </div>
