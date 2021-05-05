@@ -187,6 +187,9 @@ def create_item_img(request, id):
         print(this_image.image.url)
     return redirect('/sucsess')
 
+def all_artists(request):
+    return render(request, "all_artists.html")
+
 def logout(request):
     request.session.flush()
     return redirect("/")

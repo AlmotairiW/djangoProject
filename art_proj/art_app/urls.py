@@ -17,6 +17,7 @@ urlpatterns = [
     path('buy_artwork/<artwork_id>', views.buy_artwork),
     path('add_review/<artwork_id>', views.add_review),
     path('show_artist_profile/<artist_id>', views.show_artist_profile),
+    path('all_artists', views.all_artists),
     path('logout', views.logout),
 ]
 
