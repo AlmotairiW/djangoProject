@@ -8,5 +8,7 @@ urlpatterns = [
     path('sucsess', views.sucsess), # to render appropriate template for artist/customer
     path('add_item', views.add_item), # renders add item page for artist
     path('create_art', views.create_art), # adds artwork to DB
+    path('add_item_img/<int:id>', views.add_item_img), # renders add image form
+    path('create_item_img/<int:id>', views.create_item_img), # saves image to DB
 
 ]

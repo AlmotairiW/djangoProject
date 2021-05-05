@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 import bcrypt
 from .models import *
+from .forms import *
 
 # Create your views here.
 
@@ -59,22 +60,40 @@ def add_item(request):
     }
     return render(request, "add_item_1.html", context)
 
+
 def create_art(request):
     art_titel = request.POST['title']
     art_desc = request.POST['Description']
     art_q = request.POST['quantity']
     art_size = request.POST['size']
     art_price = request.POST['price']
+    this_artist = Artist.objects.get(account_id=request.session['uid'])
+    this_art = Artwork.objects.create(title=art_titel, description=art_desc, quantity=art_q,
+                                      size=art_size, price=art_price, artist=this_artist)
+    return redirect(f'/add_item_img/{this_art.id}')
 
-    this_art = Artwork.objects.create(title = art_titel, description = art_desc, quantity = art_q,
-        size = art_size, price = art_price)
-    
-    this_artist = Artist.objects.get ( account_id = request.session['uid'])
 
-    art_img_name = f'{this_art.title} image'
-    art_img_alt_text = f'this image added by {this_artist.account.first_name} for {this_art.title}'
+def add_item_img(request, id):
+    this_artwork = Artwork.objects.get(id=id)
+    form = ArtworkImageForm()
+    context = {
+        'this_artwork': this_artwork,
+        'this_user': Artist.objects.get(account_id=request.session['uid']),
+        'form': form,
+    }
+    return render(request, "add_item_img.html", context)
 
-    # ArtworkImage.objects.create()
-    
-    
 
+def create_item_img(request, id):
+    this_artwork = Artwork.objects.get(id=id)
+    this_artist = Artist.objects.get(account_id=request.session['uid'])
+    form = ArtworkImageForm(request.POST, request.FILES)
+    if form.is_valid():
+        this_image = form.save(commit=False)
+        this_image.name = f'{this_artwork.title} image'
+        this_image.alt_text = f'this image added by {this_artist.account.first_name} for {this_artwork.title}'
+        this_image.artwork = this_artwork
+        this_image.save()
+        form.save()
+        print(this_image.image.url)
+    return redirect('/sucsess')
