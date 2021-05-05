@@ -190,7 +190,7 @@
                                                     {% if item != this_artist.artworks.first %}
                                                         {% for img in item.images.all %}
                                                         <div class="item">
-                                                        <img src="{{img.image.url}}"style="width:100%;">
+                                                        <a href="/artwork_info/{{item.id}}"><img src="{{img.image.url}}"style="width:100%;"></a>
                                                         </div>
                                                         {% endfor %}
                                                     {% endif %}
