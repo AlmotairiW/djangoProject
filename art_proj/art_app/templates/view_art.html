@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Add Item</title>
+        <title>Edit Item</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -102,77 +102,71 @@
             </ul>
         </div>
 
+        
         <div class="page-content">
             <section id="video" class="content-section">
                 <div class="row">
                     <div class="col-md-12">
+                        
                         <div class="section-heading">
-                            <h1>Welcome<em> ArtistName </em></h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad neque quisquam asperiores impedit similique quas animi distinctio, blanditiis soluta excepturi laboriosam, nulla praesentium unde a eos qui? Esse, autem nostrum?
-                                Praesent pellentesque efficitur magna, sed pellentesque neque malesuada vitae.</p>
+                            <h1>{{Artist_Name}} <em> Painting </em></h1>
                         </div>
-                        <div class="col-md-4">
-                            <div class="accent-button button">
-                                <a href="#"> Go to Gallary</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="accent-button button">
-                                <a href="#"> Add Item</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="accent-button button">
-                                <a href="#"> Biography Page</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="section-content">
-                                <form action="/create_art" method="POST">
-                                    {% csrf_token %}
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <fieldset>
-                                                <input name="title" type="text" class="form-control" id="title" placeholder="Art title..." required="">
-                                            </fieldset>
+                        <div id= "blog" class="section-content">
+                            <div class="tabs-content">
+                                <div class="wrapper">
+                                    <div class="tabs clearfix" data-tabgroup="first-tab-group">
+                                        <h3>{{ARTWORK_TITLE}}</h3>
+                                    </div>
+                                    <div class="text-content">
+                                        <div class="row">
+                                            <p>
+                                                {{ARTWORK_DESCRIPTION}}
+                                            </p>
                                         </div>
-                                        <div class="col-md-4">
-                                            <fieldset>
-                                                <textarea name="Description" rows="6" class="form-control" id="description" placeholder="Art description..." required=""></textarea>
-                                            </fieldset>
+                                        <div class="row">
+                                            <p>
+                                                {{ARTWORK_SIZE}}
+                                            </p>
+                                            <p>
+                                                {{ARTWORK_PRICE}}
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <p>
+                                                {{ARTWORK_ARTIST_NAME}}
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <p>Tell the artist your review: </p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 inputGroupContainer">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                                    <textarea class="form-control" id="review" rows="5"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <fieldset>
+                                                    <button type="submit" id="form-submit" class="btn">Submit Review</button>
+                                                </fieldset>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <fieldset>
-                                                <input name="quantity" type="number" class="form-control" id="quantity" placeholder="quantity" required="">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <fieldset>
-                                                <input name="size" type="text" class="form-control" id="size" placeholder="size" required="">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <fieldset>
-                                                <input name="price" type="number" class="form-control" id="price" max="5000" placeholder="price" required="">
-                                            </fieldset>
-                                        </div>
-                                    </div>
-    
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <fieldset>
-                                                <button type="submit" id="form-submit" class="btn">Add Item to Gallery</button>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
+                        
+
                     </div>
                     <div class="col-md-12">
-                        <div class="bg-video" style="background-image: url(https://unsplash.imgix.net/photo-1425036458755-dc303a604201?fit=crop&fm=jpg&q=75&w=1000);"></div>
+                        <div class="box-video">
+                            <div class="bg-video" style="background-image: url(https://unsplash.imgix.net/photo-1425036458755-dc303a604201?fit=crop&fm=jpg&q=75&w=1000);">
+                            
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -183,6 +177,7 @@
                 . Design: TemplateMo</p>
             </section>
         </div>
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
