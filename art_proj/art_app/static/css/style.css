@@ -5,7 +5,8 @@ body{
 }
 .register{
     margin-top: 2%;
-    margin-right: 250px;
+    margin-bottom: 10%;
+    margin-left: 25% ;
     padding: 3%;
 }
 .register-left{
@@ -128,6 +129,11 @@ body{
 .art-img{
     padding-top: 10px;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 390113a8e5944129828bd71aa20c4fb644854c1a
 .log-home{
     margin-bottom: 20px;
     height: 10px;
@@ -142,3 +148,7 @@ body{
    
 }
 
+<<<<<<< HEAD
+=======
+>>>>>>> c05085d2b652d78f4463c00421acbe8f70239ab9
+>>>>>>> 390113a8e5944129828bd71aa20c4fb644854c1a
