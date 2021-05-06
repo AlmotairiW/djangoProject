@@ -1,13 +1,15 @@
-<!doctype HTML>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <head>
-    <title>Login</title>
-    {%load static%}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Art Gallery</title>
         
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -23,76 +25,53 @@
 
 </head>
 
+    </head>
 
 <body>
-    <header class="nav-down responsive-nav hidden-lg hidden-md">
-        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
-            <span class="sr-only"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        
-        <!--/.navbar-header-->
-        <div id="main-nav" class="collapse navbar-collapse">
-            <nav>
-                <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#">Login Or Register</a></li>
-                    <li><a href="/all_artists">Artists Profiles</a></li>
-                    <li><a href="/art_gallery">Art Gallary</a></li>
-                    <li><a href="/">About Us</a></li>
-                    <li><a href="/">Contact Us</a></li>
-                    <li><a href="/logout">Logout</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+    
     <div class="sidebar-navigation hidde-sm hidden-xs">
         <div class="logo">
-            <a href="/">Cloud9<em> Gallary</em></a>
+            <a href="#top">Cloud9<em> Gallary</em></a>
         </div>
         <nav>
             <ul>
                 <li>
-                    <a href="/"><span class="rect"></span><span class="circle"></span>
+                    <a href="#top"><span class="rect"></span><span class="circle"></span>
                         Home
                     </a>
                 </li>
 
                 <li>
-                    <a href="#"><span class="rect"></span><span class="circle"></span>
+                    <a href="#blog"><span class="rect"></span><span class="circle"></span>
                         Login Or Register
                     </a>
                 </li>
 
                 <li>
-                    <a href="/all_artists"><span class="rect"></span><span class="circle"></span>
+                    <a href="#featured"><span class="rect"></span><span class="circle"></span>
                         Artists Profiles
                     </a>
                 </li>
 
                 <li>
-                    <a href="/art_gallery"><span class="rect"></span><span class="circle"></span>
+                    <a href="#projects"><span class="rect"></span><span class="circle"></span>
                         Art Gallary
                     </a>
                 </li>
 
                 <li>
-                    <a href="/"><span class="rect"></span><span class="circle"></span>
+                    <a href="#"><span class="rect"></span><span class="circle"></span>
                         About Us
                     </a>
                 </li>
 
                 <li>
-                    <a href="/"><span class="rect"></span><span class="circle"></span>
+                    <a href="#contact"><span class="rect"></span><span class="circle"></span>
                         Contact Us
                     </a>
                 </li>
-
                 <li>
-                    <a href="/logout"><span class="rect"></span><span class="circle"></span>
+                    <a href="#logout"><span class="rect"></span><span class="circle"></span>
                         Logout
                     </a>
                 </li>

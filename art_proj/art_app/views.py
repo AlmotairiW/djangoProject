@@ -37,11 +37,13 @@ def artwork_info(request, artwork_id):
 # check quantity in html ,if not should be here
 
 def art_gallery(request):
+
     context = {
         "this_artwork" : Artwork.objects.all(),
 
         "this_user": Artist.objects.all(),
     }
+    
     return render(request, 'art_gallery.html', context)
 
 def payment(request):
@@ -68,17 +70,17 @@ def buy_artwork(request, artwork_id):
             return render(request, "check_out.html", context)
         else:  # soldout
             return redirect(f'/artwork_info/{artwork_id}')
-    else: #not logged in
     else:
         return redirect('/login_reg')  # missing complete purchase
 
 
 def check_out(request, artwork_id, customer_id):
-    this_artwork.quantity=this_artwork.quantity-request.POST['quantity']#will moved into "checkout"
-    this_customer.purchases.add(this_artwork)
-    return render(request, "completed_purchases.html")#will replaced with ckeckout page
-     # else:
-        # return redirect(f'/artwork_info/{artwork_id}')
+    #     this_artwork.quantity=this_artwork.quantity-request.POST['quantity']#will moved into "checkout"
+    #     this_customer.purchases.add(this_artwork)
+    #     return render(request, "completed_purchases.html")#will replaced with ckeckout page
+    # else:
+    #     return redirect(f'/artwork_info/{artwork_id}')
+    return
 
 
 # submit btn for review valid for logged-in +iscustomer+artwork in purchases
@@ -124,25 +126,7 @@ def edit_artist_bio(request, artist_id):
         else:
             return redirect('/')
     return render(request, 'edit_artist_bio.html', context)
-<<<<<<< HEAD
-=======
 
->>>>>>> c05085d2b652d78f4463c00421acbe8f70239ab9
-
-def update_artist_bio(request, artist_id):
-    if 'uid' in request.session:
-        this_user = Account.objects.get(id=request.session['uid'])
-        if this_user.is_artist:
-            this_artist = Artist.objects.get(account_id = artist_id)
-            this_artist.account.first_name = request.POST['first_name']
-            this_artist.account.last_name = request.POST['last_name']
-            this_artist.account.city = request.POST['city']
-            this_artist.bio = request.POST['bio']
-            this_artist.save()
-            this_artist.account.save()
-            return redirect(f'/show_artist_profile/{artist_id}')
-        else:
-            return redirect('/')
 
 def update_artist_bio(request, artist_id):
     if 'uid' in request.session:
@@ -199,10 +183,7 @@ def sucsess(request):
             "this_user": this_account,
         }
         return render(request, "index.html", context)  # should be gallery
-<<<<<<< HEAD
-=======
 
->>>>>>> c05085d2b652d78f4463c00421acbe8f70239ab9
 
 def login_form(request):
     return render(request, 'login.html')
