@@ -38,11 +38,13 @@ def artwork_info(request, artwork_id):
 
 
 def art_gallery(request):
+
     context = {
         "this_artwork": Artwork.objects.all(),
 
         "this_user": Artist.objects.all(),
     }
+    
     return render(request, 'art_gallery.html', context)
 
 
@@ -70,12 +72,24 @@ def buy_artwork(request, artwork_id):
     if request.session['login'] == True:
         this_customer = Customer.objects.get(account_id=request.session['uid'])
         this_artwork = Artwork.objects.get(id=artwork_id)
+<<<<<<< HEAD
         context = {
             'this_customer': this_customer,
             'this_artwork': this_artwork
         }
         return render(request, "checkout.html", context)
     else:  # not logged in
+=======
+        if this_artwork.quantity >= request.POST['quantity']:
+            context = {
+                'this_customer': this_customer,
+                'this_artwork': this_artwork
+            }
+            return render(request, "check_out.html", context)
+        else:  # soldout
+            return redirect(f'/artwork_info/{artwork_id}')
+    else:
+>>>>>>> d636109f5a140d419cc2a121d0d1f9a5677507d0
         return redirect('/login_reg')  # missing complete purchase
 
 
@@ -142,6 +156,7 @@ def edit_artist_bio(request, artist_id):
         else:
             return redirect('/')
     return render(request, 'edit_artist_bio.html', context)
+<<<<<<< HEAD
 
 
 def update_artist_bio(request, artist_id):
@@ -158,6 +173,9 @@ def update_artist_bio(request, artist_id):
             return redirect(f'/show_artist_profile/{artist_id}')
         else:
             return redirect('/')
+=======
+
+>>>>>>> d636109f5a140d419cc2a121d0d1f9a5677507d0
 
 
 def update_artist_bio(request, artist_id):

@@ -3,13 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <head>
     <title>Register</title>
-   
     {%load static%}
-        
-   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -17,111 +14,200 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link href="fonts/fontello/css/fontello.css" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  
 
-    <!doctype HTML>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel='stylesheet' href="{% static 'css/bootstrap.min.css' %}">
+    <link rel='stylesheet' href="{% static 'css/bootstrap-theme.min.css' %}">
+    <link rel='stylesheet' href="{% static 'css/fontAwesome.css' %}">
+    <link rel='stylesheet' href="{% static 'css/light-box.css' %}">
+    <link rel='stylesheet' href="{% static 'css/owl-carousel.css' %}">
+    <link rel='stylesheet' href="{% static 'css/templatemo-style.css' %}">
+    <link rel='stylesheet' href="{% static 'css/style.css' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
 </head>
 
 
 <body>
-    <div class="container register">
-        <div class="row">
-           
-            <div class="col-md-9 register-right">
-                <img src="https://i.ibb.co/GFfhVyr/fdf010499244844057763cc3305d4d57-hand-drawn-paint-palette-brush-stroke-by-vexels.png" alt="fdf010499244844057763cc3305d4d57-hand-drawn-paint-palette-brush-stroke-by-vexels" >
-                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="True">Artist</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Customer</a>
-                    </li>
-                    
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <h3 class="register-heading">Register as a Artist</h3>
-                        <form  action="/process_reg" method="post">
-                            {% csrf_token %}
-                        <div class="row register-form">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name *"  name="first_name"/>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name *"  name="last_name"/>
-                                </div>
-                               
-                                <div class="form-group">
-                                    <input type="password" class="form-control"  placeholder="Password *" name="password" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control"  placeholder="Confirm Password *" name="confirm" />
-                                </div>
-                                
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" name="email" />
-                                </div>
-                                <input type="hidden" value="2" name="type">
-
-                                <input type="submit" class="btnRegister"  value="Sign up"/>
-                            </div>
-                        </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <h3  class="register-heading">Register as a Customer</h3>
-                        <form  action="/process_reg" method="post">
-                            {% csrf_token %}
-                        <div class="row register-form">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name *" value="" name="first_name"/>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last Name *" name="last_name" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email *" name="email" />
-                                </div>
-
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input id = "password" type="password" class="form-control" placeholder="Password *" name="password" />
-                                </div>
-                                <input type="hidden" value="1" name="type">
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Confirm Password *" name="confirm" />
-                                </div> <input type="submit" class="btnRegister"  value="Sign up"/>
-
-
-                            </div>
-                        </form>
-                        </div>
-                        
-                    </div>
-                   
-                   
-                    <div id="message">
-                        <h5>Password must contain the following:</h5>
-                        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                        <p id="number" class="invalid">A <b>number</b></p>
-                        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
-                      </div>
-                   
-           </div>
-           </div>
-           </div>
-           </div>
-        				                            
- <script>
+    <header class="nav-down responsive-nav hidden-lg hidden-md">
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
         
+        <!--/.navbar-header-->
+        <div id="main-nav" class="collapse navbar-collapse">
+            <nav>
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Login Or Register</a></li>
+                    <li><a href="/all_artists">Artists Profiles</a></li>
+                    <li><a href="/art_gallery">Art Gallary</a></li>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/">Contact Us</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-      
+    <div class="sidebar-navigation hidde-sm hidden-xs">
+        <div class="logo">
+            <a href="/">Cloud9<em> Gallary</em></a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
+                        Login Or Register
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/all_artists"><span class="rect"></span><span class="circle"></span>
+                        Artists Profiles
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/art_gallery"><span class="rect"></span><span class="circle"></span>
+                        Art Gallary
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
+                        About Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/"><span class="rect"></span><span class="circle"></span>
+                        Contact Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/logout"><span class="rect"></span><span class="circle"></span>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <ul class="social-icons">
+            <li><a href="https://github.com/abeeralamri">A<i class="fa fa-github"></i></a></li>
+            <li><a href="https://github.com/Reem-nm">R<i class="fa fa-github"></i></a></li>
+            <li><a href="https://github.com/sosoulfull">S<i class="fa fa-github"></i></a></li>
+            <li><a href="https://github.com/AlmotairiW">W<i class="fa fa-github"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="page-content">
+        <section id="" class="">
+            <div class="container register">
+                <div class="row">
+                    <div class="col-md-9 register-right">
+                        <img src="https://i.ibb.co/GFfhVyr/fdf010499244844057763cc3305d4d57-hand-drawn-paint-palette-brush-stroke-by-vexels.png" alt="fdf010499244844057763cc3305d4d57-hand-drawn-paint-palette-brush-stroke-by-vexels" >
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="True">Artist</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Customer</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Register as a Artist</h3>
+                                <form  action="/process_reg" method="post">
+                                    {% csrf_token %}
+                                    <div class="row register-form">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="First Name *"  name="first_name"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Last Name *"  name="last_name"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control"  placeholder="Password *" name="password" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control"  placeholder="Confirm Password *" name="confirm" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Your Email *" name="email" />
+                                            </div>
+                                            <input type="hidden" value="2" name="type">
+                                            <input type="submit" class="btnRegister"  value="Sign up"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <h3  class="register-heading">Register as a Customer</h3>
+                                <form  action="/process_reg" method="post">
+                                    {% csrf_token %}
+                                    <div class="row register-form">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="First Name *" name="first_name"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Last Name *" name="last_name" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Email *" name="email" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input id = "password" type="password" class="form-control" placeholder="Password *" name="password" />
+                                            </div>
+                                            <input type="hidden" value="1" name="type">
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Confirm Password *" name="confirm" />
+                                            </div>
+                                            <input type="submit" class="btnRegister"  value="Sign up"/>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div id="message">
+                                <h5>Password must contain the following:</h5>
+                                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                                <p id="number" class="invalid">A <b>number</b></p>
+                                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footer">
+            <p>Copyright &copy; 2021 Cloud9  . Saudi Digital Academy : Coding Dojo</p>
+        </section>
+    </div>
+</div>
+
+
+
+    <script>
+        
         var myInput = document.getElementById("password");
         var letter = document.getElementById("letter");
         var capital = document.getElementById("capital");
@@ -130,57 +216,57 @@
         
         // When the user clicks on the password field, show the message box
         myInput.onfocus = function() {
-          document.getElementById("message").style.display = "block";
+            document.getElementById("message").style.display = "block";
         }
         
         // When the user clicks outside of the password field, hide the message box
         myInput.onblur = function() {
-          document.getElementById("message").style.display = "none";
+            document.getElementById("message").style.display = "none";
         }
         
         // When the user starts to type something inside the password field
         myInput.onkeyup = function() {
-          // Validate lowercase letters
-          var lowerCaseLetters = /[a-z]/g;
-          if(myInput.value.match(lowerCaseLetters)) {  
-            letter.classList.remove("invalid");
-            letter.classList.add("valid");
-          } else {
-            letter.classList.remove("valid");
-            letter.classList.add("invalid");
-          }
-          
-          // Validate capital letters
-          var upperCaseLetters = /[A-Z]/g;
-          if(myInput.value.match(upperCaseLetters)) {  
-            capital.classList.remove("invalid");
-            capital.classList.add("valid");
-          } else {
-            capital.classList.remove("valid");
-            capital.classList.add("invalid");
-          }
-        
-          // Validate numbers
-          var numbers = /[0-9]/g;
-          if(myInput.value.match(numbers)) {  
-            number.classList.remove("invalid");
-            number.classList.add("valid");
-          } else {
-            number.classList.remove("valid");
-            number.classList.add("invalid");
-          }
-          
-          // Validate length
-          if(myInput.value.length >= 8) {
-            length.classList.remove("invalid");
-            length.classList.add("valid");
-          } else {
-            length.classList.remove("valid");
-            length.classList.add("invalid");
-          }
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if(myInput.value.match(lowerCaseLetters)) {  
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+            } 
+            else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+            }
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if(myInput.value.match(upperCaseLetters)) {  
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            } 
+            else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if(myInput.value.match(numbers)) {  
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            } 
+            else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+            }
+
+            // Validate length
+            if(myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+            } 
+            else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+            }
         }
-        </script>
-
+    </script>
 </body>
-
 </html>
