@@ -12,11 +12,19 @@ urlpatterns = [
     path('sucsess', views.sucsess), # to render appropriate template for artist/customer
     path('add_item', views.add_item), # renders add item page for artist
     path('create_art', views.create_art), # adds artwork to DB
+    path('add_item_img/<int:artwork_id>', views.add_item_img), #renders upload img form
+    path('create_item_img/<int:artwork_id>', views.create_item_img), #saves img to DB
+    path('edit_item/<int:artwork_id>', views.edit_item),
+    path('update_artwork/<int:artwork_id>', views.update_artwork),
+    path('delete_artwork/<int:artwork_id>', views.delete_artwork),
     
     path('artwork_info/<artwork_id>', views.artwork_info), # render a one artwork details page
     path('buy_artwork/<artwork_id>', views.buy_artwork),
     path('add_review/<artwork_id>', views.add_review),
     path('show_artist_profile/<artist_id>', views.show_artist_profile),
+    path('edit_artist_bio/<int:artist_id>', views.edit_artist_bio),
+    path('update_artist_bio/<int:artist_id>', views.update_artist_bio),
+    
     path('all_artists', views.all_artists),
     path('logout', views.logout),
 ]

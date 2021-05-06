@@ -15,6 +15,7 @@
         <link rel='stylesheet' href="{% static 'css/light-box.css' %}">
         <link rel='stylesheet' href="{% static 'css/owl-carousel.css' %}">
         <link rel='stylesheet' href="{% static 'css/templatemo-style.css' %}">
+        <link rel='stylesheet' href="{% static 'css/style.css' %}">
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
@@ -112,19 +113,21 @@
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad neque quisquam asperiores impedit similique quas animi distinctio, blanditiis soluta excepturi laboriosam, nulla praesentium unde a eos qui? Esse, autem nostrum?
                                 Praesent pellentesque efficitur magna, sed pellentesque neque malesuada vitae.</p>
                         </div>
+
                         <div class="col-md-4">
                             <div class="accent-button button">
                                 <a href="/art_gallery"> Go to Gallary</a>
                             </div>
                         </div>
+                        
                         <div class="col-md-4">
                             <div class="accent-button button">
-                                <a href="/add_item"> Add Item</a>
+                                <a href="/show_artist_profile/{{this_user.account.id}}"> Biography Page</a>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="accent-button button">
-                                <a href="/sucsess"> Biography Page</a>
+                                <a href="/sucsess"> My Dashboard</a>
                             </div>
                         </div>
                         <div class="item">
@@ -151,7 +154,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <fieldset>
-                                                <input name="size" type="text" class="form-control" id="size" placeholder="size" required="">
+                                                <input name="size" type="text" class="form-control" id="size" placeholder="Dimensions..." required="">
                                             </fieldset>
                                         </div>
                                         <div class="col-md-4">
@@ -164,7 +167,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <fieldset>
-                                                <button type="submit" id="form-submit" class="btn">Add Item to Gallery</button>
+                                                <button  type="submit" id="form-submit" class="btn">Add Item to Gallery</button>
                                             </fieldset>
                                         </div>
                                     </div>

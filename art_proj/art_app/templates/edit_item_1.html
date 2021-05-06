@@ -15,6 +15,7 @@
         <link rel='stylesheet' href="{% static 'css/light-box.css' %}">
         <link rel='stylesheet' href="{% static 'css/owl-carousel.css' %}">
         <link rel='stylesheet' href="{% static 'css/templatemo-style.css' %}">
+        <link rel='stylesheet' href="{% static 'css/style.css' %}">
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
@@ -107,8 +108,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-heading">
-                            <h1>Welcome<em> ArtistName </em></h1>
-                            <p>Praesent pellentesque efficitur magna, sed pellentesque neque malesuada vitae.</p>
+                            <h1>Welcome<em> {{this_artist.account.first_name}}! </em> Edit Your artwork!</h1>
+                            <p>Thsi will update your {{this_artwork.title}} information to show it to potential customers</p>
                         </div>
                         <div class="col-md-4">
                             <div class="accent-button button">
@@ -117,47 +118,48 @@
                         </div>
                         <div class="col-md-4">
                             <div class="accent-button button">
-                                <a href="#"> Add Item</a>
+                                <a href="/add_item"> Add a new Item</a>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="accent-button button">
-                                <a href="#"> Biography Page</a>
+                                <a href="/sucsess"> My Dashboard</a>
                             </div>
                         </div>
                         <div class="item">
                             <div class="section-content">
-                                <form action="#" method="POST">
+                                <form action="/update_artwork/{{this_artwork.id}}" method="POST">
                                     {% csrf_token %}
                                     <div class="col-md-4">
                                         <fieldset>
-                                            <input name="title" type="text" class="form-control" id="title" placeholder="Art title..." required="">
+                                            <input name="title" type="text" class="form-control" id="title" placeholder="Art title..." required="true" value="{{this_artwork.title}}">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-4">
                                         <fieldset>
-                                            <textarea name="Description" rows="6" class="form-control" id="description" placeholder="Art description..." required=""></textarea>
+                                            <textarea name="Description" rows="6" class="form-control" id="description" placeholder="Art description..." required="">{{this_artwork.description}}</textarea>
                                         </fieldset>
                                     </div>
                                     <div class="col-md-4">
                                         <fieldset>
-                                            <input name="quantity" type="number" class="form-control" id="quantity" placeholder="quantity" required="">
+                                            <input name="quantity" type="number" class="form-control" id="quantity" placeholder="quantity" required="true" value="{{this_artwork.quantity}}">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-4">
                                         <fieldset>
-                                            <input name="size" type="text" class="form-control" id="size" placeholder="size" required="">
+                                            <input name="size" type="text" class="form-control" id="size" placeholder="Dimensions ..." required="" value="{{this_artwork.size}}">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-4">
                                         <fieldset>
-                                            <input name="price" type="number" class="form-control" id="price" max="8" placeholder="price" required="">
+                                            <input name="price" type="number" class="form-control" id="price" max="5000" placeholder="price" required="true" value="{{this_artwork.price}}">
                                         </fieldset>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <fieldset>
                                                 <button type="submit" id="form-submit" class="btn">Finish Editing</button>
+                                                <button  id="add-img" class="btn"><a href="/add_item_img/{{this_artwork.id}}">Add More Images of your Artwork </a> </button>
                                             </fieldset>
                                         </div>
                                     </div>
