@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+
+
+
+
+.wrapper {
+    margin-top: 10%;
+    margin-left: 45%;
+    background-color: #f4f2f7;
+    max-width: 400px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20%;
+}
+
+h4 {
+    font-weight: 800;
+    color: #888;
+}
+
+label {
+    font-weight: 700;
+    color: #888;
+    font-size: 12px;
+}
+
+.card-no {
+    border: none;
+    outline: none;
+    width: 90%;
+    padding-left: 8px;
+}
+
+.form-control {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.card-number {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 8px 2px;
+}
+
+.btn{
+    background-color: #9598f0;
+}
+
+.form-inline label {
+    font-size: 1rem;
+}
+
+
+
+
+#form-footer p {
+
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+}
+
+@media(max-width:395px) {
+    .form-inline label {
+        font-size: 12px;
+    }
+
+    #form-footer p {
+        font-size: 11px;
+    }
+
+    .card-no {
+        width: 85%;
+    }
+}
+
+
+
+
+
+    .payment
+	{
+		border:1px solid #f2f2f2;
+		height:280px;
+        border-radius:20px;
+        margin-top: 20%;
+        background:#fff;
+        margin-left: 30%;
+        margin-bottom: 70%;
+
+	}
+   .payment_header
+   {
+	   background:  #9598f0;       ;
+	   padding:20px;
+       border-radius:20px 20px 0px 0px;
+	   
+   }
+   
+   .check
+   {
+	   margin:0px auto;
+	   width:50px;
+	   height:50px;
+	   border-radius:100%;
+	   background:#fff;
+	   text-align:center;
+   }
+   
+   .check i
+   {
+	   vertical-align:middle;
+	   line-height:50px;
+	   font-size:30px;
+   }
+
+    .content 
+    {
+        text-align:center;
+    }
+
+    .content  h1
+    {
+        font-size:25px;
+        padding-top:25px;
+    }
+
+    .content a
+    {
+        width:200px;
+        height:35px;
+        color:#fff;
+        border-radius:30px;
+        padding:5px 10px;
+        background:rgba(255,102,0,1);
+        transition:all ease-in-out 0.3s;
+    }
+
+    .content a:hover
+    {
+        text-decoration:none;
+        background:#000;
+    }
+   
