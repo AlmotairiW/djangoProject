@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>checkout</title>
+        <title>Payment</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,13 +21,13 @@
         <link rel='stylesheet' href="{% static 'css/light-box.css' %}">
         <link rel='stylesheet' href="{% static 'css/owl-carousel.css' %}">
         <link rel='stylesheet' href="{% static 'css/templatemo-style.css' %}">
-        <link rel='stylesheet' href="{% static 'css/checkout_style.css' %}">
+        <link rel='stylesheet' href="{% static 'css/payment_style.css' %}">
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
     </head>
-
 <body>
+
     
     <header class="nav-down responsive-nav hidden-lg hidden-md">
         <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
@@ -101,7 +101,7 @@
                 </li>
             </ul>
         </nav>
-
+        
             <ul class="social-icons">
                 <li><a href="https://github.com/abeeralamri">A<i class="fa fa-github"></i></a></li>
                 <li><a href="https://github.com/Reem-nm">R<i class="fa fa-github"></i></a></li>
@@ -109,61 +109,35 @@
                 <li><a href="https://github.com/AlmotairiW">W<i class="fa fa-github"></i></a></li>
             </ul>
         </div>
-          
         <br>
-  
-    <div class="card">
-        <div class="row">
-            <div class="col-md-8 cart">
-                <div class="title">
-                    <div class="row">
-                        <div class="col">
-                            <h4><b>Shopping Cart</b></h4>
-                        </div>
-                        <div class="col align-self-center text-right text-muted">3 items</div>
-                    </div>
-                </div>
-               
-                <div class="row">
-                    <div class="row main align-items-center">
-                        <div class="col-2"><img src="https://i.ibb.co/Mfz5ChX/art5.jpg" alt="art5"></div>
-                        <div class="col">
-                            <div class="row text-muted">Art</div>
-                            <div class="row">Painting</div>
-                        </div>
-                        <div class="col">&dollar; 44.00 <span class="close">&#10005;</span></div>
-                    </div>
-                </div>
-                
-                <div class="back-to-shop"><a href="/art_gallery">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+    <div class="wrapper">
+        <h4 class="text-uppercase">Payment Details</h4>
+            <div class="form-group"> <label for="name" class="text-uppercase">name on the card</label> <input type="text" class="form-control" placeholder="Card Name"> </div>
+            <div class="form-group"> <label for="card" class="text-uppercase">card number</label>
+                <div class="card-number"> <input type="text" class="card-no" step="4" placeholder="Enter Card Number" pattern="^[0-9].{15,}"> <span class=""> <img src="https://www.freepnglogos.com/uploads/mastercard-png/mastercard-marcus-samuelsson-group-2.png" alt="" width="30" height="30"> </span> </div>
             </div>
-            <div class="col-md-4 summary">
-                <div>
-                    <h5><b>Summary</b></h5>
+            <div class="d-flex w-100">
+                <div class="d-flex w-50 pr-sm-4">
+                    <div class="form-group"> <label for="expiry" class="text-uppercase">exp.date</label> <input type="text" class="form-control" placeholder="MM/YYY"> </div>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col" style="padding-left:0;">ITEMS 3</div>
-                    <div class="col text-right">&euro; 132.00</div>
+                <div class="d-flex w-50 pl-sm-5 pl-3">
+                    <div class="form-group"> <label for="cvv">CVV</label>  <input type="password" class="form-control pr-5" maxlength="3" placeholder="123"> </div>
                 </div>
-                
-                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                    <div class="col">TOTAL PRICE</div>
-                    <div class="col text-right">&euro; 137.00</div>
-
-                </div>
-                <form action="/payment">
-                     <button class="btn">CHECKOUT</button>
-                </form>
             </div>
-        </div>
-    </div>
-                    
 
-                           
+            <form action="/payment_success">
+                 <input type="submit" id="btn" value="place your order" class="text-uppercase btn  btn-block p-3">
+            </form>
+
+                
+            <div id="form-footer">
+                <p>By placing your order, you agree to our</p>
+                <p><a href="#">privacy notice</a> & <a href="#">terms of use</a>.</p>
+            </div>
+    </div>        
         
             <section class="footer">
-                <p>Copyright &copy; 2021 Cloud9. Saudi Digital Academy : Coding Dojo </p>
+                <p>Copyright &copy; 2021 Cloud9. Saudi Digital Academy : Coding Dojo  </p>
 
             </section>
         </div>

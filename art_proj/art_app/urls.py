@@ -6,8 +6,9 @@ from django.conf.urls.static import static
 from . import views
 urlpatterns = [
     path('', views.index),
-    path('login_reg', views.login_reg), # render registration template
+    path('register', views.register), # render registration template
     path('process_reg', views.process_reg), # adds user to DB
+    path('login_form', views.login_form), # renders log in form
     path('login', views.login), # log in, gets user from DB then redirect to sucsess
     path('sucsess', views.sucsess), # to render appropriate template for artist/customer
     path('add_item', views.add_item), # renders add item page for artist
@@ -18,6 +19,11 @@ urlpatterns = [
     path('update_artwork/<int:artwork_id>', views.update_artwork),
     path('delete_artwork/<int:artwork_id>', views.delete_artwork),
     
+    path('checkout', views.check_out_page), 
+    path('art_gallery', views.art_gallery),
+    path('payment', views.payment),
+    path('payment_success', views.payment_success),
+
     path('artwork_info/<artwork_id>', views.artwork_info), # render a one artwork details page
     path('buy_artwork/<artwork_id>', views.buy_artwork),
     path('add_review/<artwork_id>', views.add_review),
