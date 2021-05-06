@@ -31,12 +31,14 @@
 
                 <div class="tab-pane fade show" id="login_page" role="tabpanel" aria-labelledby="login-tab">
                     <h3  class="register-heading">Login</h3>
+                    <form  action="/login" method="post">
+                        {% csrf_token %}
                     <div class="row register-form">
                         <div class="col-md-6">
-                        
+                            
                             <div class="form-group">
                                 
-                                <input type="email" class="form-control" placeholder="Email *" value="" />
+                                <input type="email" class="form-control" placeholder="Email *" name="email" />
                             </div>
                         
 
@@ -44,12 +46,14 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input id = "password" type="password" class="form-control" placeholder="Password *" value="" />
+                                <input id = "password" type="password" class="form-control" placeholder="Password *" name="password" />
                             </div>
 
                             <input type="submit" class="btnLogin"  value="Login"/>
-
+                            
                         </div>
+                    </form>
+                        
                     </div>
                     
                 </div>

@@ -128,3 +128,17 @@ body{
 .art-img{
     padding-top: 10px;
 }
+.log-home{
+    margin-bottom: 20px;
+    height: 10px;
+}
+
+.btn-logout{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+   
+}
+

@@ -123,8 +123,8 @@ def update_artist_bio(request, artist_id):
             return redirect('/')
 
 
-def login_reg(request):
-    return render(request, "login_page.html")
+def register(request):
+    return render(request, "register.html")
 
 
 def process_reg(request):
@@ -134,7 +134,7 @@ def process_reg(request):
     email = request.POST['email']
     new_pass = bcrypt.hashpw(
         request.POST['password'].encode(), bcrypt.gensalt()).decode()
-    if(request.POST['account_type'] == 'customer'):
+    if(request.POST['type'] == '1'):
         new_user = Account.objects.create(
             first_name=fname, last_name=lname, email=email, password=new_pass, is_customer=True)
         this_user = Customer.objects.create(account=new_user)
@@ -164,10 +164,13 @@ def sucsess(request):
         return render(request, "index.html", context)  # should be gallery
 
 
+def login_form(request):
+    return render(request, 'login.html')
+
 def login(request):
 
     logged_user = Account.objects.get(email=request.POST['email'])
-    if bcrypt.checkpw(request.POST['pass'].encode(), logged_user.password.encode()):
+    if bcrypt.checkpw(request.POST['password'].encode(), logged_user.password.encode()):
         request.session['uid'] = logged_user.id
         request.session['login'] = True  # NEW
         return redirect('/sucsess')
