@@ -210,12 +210,20 @@
                                             Price: {{this_artwork.price}}$
                         
                                             <!-- test buy btn -->
-                                            <a href="/buy_artwork/{{this_artwork.id}}"><i class='fas fa-shopping-cart' ></i></a>
+                                            {% if this_user.account.is_customer%}
+                                                {% if this_artwork.quantity > 0 %}
+                                                    <a href="/buy_artwork/{{this_artwork.id}}"><i class='fas fa-shopping-cart' ></i></a>
+                                                    {%else%}
+                                                    <p class="rd-txt"> sold out</p>
+                                                {% endif %}
+                            
+                                            {% endif %}
+                                        
                                         </p>
                                     </div>
                                     <div class="row">
                                         <p>
-                                            This arkwork done by <a href="/show_artist_profile/{{this_user.account.id}}" > {{this_artwork.artist.account.first_name}} {{this_artwork.artist.account.last_name}}  </a>
+                                            This arkwork done by <a href="/show_artist_profile/{{this_artwork.artist.account.id}}" > {{this_artwork.artist.account.first_name}} {{this_artwork.artist.account.last_name}}  </a>
                                         </p>
                                     </div>
                                     {% if this_user.account.id == this_artwork.artist.account.id %}
@@ -235,23 +243,28 @@
                                         <div class="rev">
                                             <div class="row">
                                                 <p>Tell the artist your review: </p>
-                                                <div class="row">
+                                                <div class="row"> 
+                                                    <form action="/add_review/{{this_artwork.id}}" method="POST">
+                                                                    {% csrf_token %}
                                                     <div class="col-md-12 inputGroupContainer">
                                                         <div class="input-group">
                                                             <span class="input-group-addon"><i
                                                                     class="fa fa-pencil"></i></span>
-                                                            <textarea class="form-control" id="review" rows="5"></textarea>
+                                                            <textarea class="form-control" id="review" rows="5" name="review"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <fieldset>
-                                                                {% if this_artwork in this_artwork.customer %}
+                                                                {% if this_user in this_artwork.customer.all %}
+                                                               
+                                                                
                                                                 <button type="submit" id="form-submit" class="btn">Submit
                                                                     Review</button>
                                                                 {% else %}
                                                                 <p style="color: rgb(205, 96, 92);">Review is for who purchase this Artwork!</p>
                                                                 {% endif %}
+                                                            </form>
                                                             </fieldset>
                                                         </div>
                                                     </div>
@@ -262,9 +275,9 @@
                                                 <p>This Artwork Reviews:</p>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        {% for review in reviews %}
-                                                            <p class="reviewcss">{{this_artwork.artist.account.first_name}} <br> 
-                                                                {{review}}</p>
+                                                        {% for review in this_artwork.reviews.all %}
+                                                                
+                                                                <p>{{review.customer.account.first_name}} Says: {{review.review_txt}}</p>
                                                         {% endfor %}
                                                     </div>
                                                 </div>

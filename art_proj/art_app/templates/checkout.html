@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>checkout</title>
         
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
 
         {%load static%}
 
@@ -120,7 +120,7 @@
                         <div class="col">
                             <h4><b>Shopping Cart</b></h4>
                         </div>
-                        <div class="col align-self-center text-right text-muted">3 items</div>
+                        <div class="col align-self-center text-right text-muted">1 item </div>
                     </div>
                 </div>
                
@@ -128,10 +128,10 @@
                     <div class="row main align-items-center">
                         <div class="col-2"><img src="https://i.ibb.co/Mfz5ChX/art5.jpg" alt="art5"></div>
                         <div class="col">
-                            <div class="row text-muted">Art</div>
-                            <div class="row">Painting</div>
+                            <div class="row text-muted">{{this_artwork.title}}</div>
+                            <div class="row"> artwork</div>
                         </div>
-                        <div class="col">&dollar; 44.00 <span class="close">&#10005;</span></div>
+                        <div class="col">&dollar; {{this_artwork.price}}$  <span class="close">&#10005;</span></div>
                     </div>
                 </div>
                 
@@ -143,16 +143,16 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col" style="padding-left:0;">ITEMS 3</div>
-                    <div class="col text-right">&euro; 132.00</div>
+                    <div class="col" style="padding-left:0;">ITEM 1</div>
+                    <div class="col text-right">&euro; {{this_artwork.price}}</div>
                 </div>
                 
                 <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                     <div class="col">TOTAL PRICE</div>
-                    <div class="col text-right">&euro; 137.00</div>
+                    <div class="col text-right">&euro; {{this_artwork.price}}</div>
 
                 </div>
-                <form action="/payment">
+                <form action="/payment/{{this_artwork.id}}" >
                      <button class="btn">CHECKOUT</button>
                 </form>
             </div>

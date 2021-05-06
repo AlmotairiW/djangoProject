@@ -128,8 +128,6 @@ body{
 .art-img{
     padding-top: 10px;
 }
-<<<<<<< HEAD
-=======
 .log-home{
     margin-bottom: 20px;
     height: 10px;
@@ -144,4 +142,8 @@ body{
    
 }
 
->>>>>>> c05085d2b652d78f4463c00421acbe8f70239ab9
+.rd-txt
+{
+    color: red;
+}
+

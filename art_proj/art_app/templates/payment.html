@@ -125,7 +125,8 @@
                 </div>
             </div>
 
-            <form action="/payment_success">
+            <form action="/checkout/{{this_artwork.id}}/{{this_customer.account_id}}" method="POST">
+                {% csrf_token%}
                  <input type="submit" id="btn" value="place your order" class="text-uppercase btn  btn-block p-3">
             </form>
 
