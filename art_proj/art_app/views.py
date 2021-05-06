@@ -49,17 +49,16 @@ def buy_artwork(request, artwork_id):
             return render(request, "check_out.html", context)
         else:  # soldout
             return redirect(f'/artwork_info/{artwork_id}')
-    else:
+    else: #not logged in
         return redirect('/login_reg')  # missing complete purchase
 
 
 def check_out(request, artwork_id, customer_id):
-    #     this_artwork.quantity=this_artwork.quantity-request.POST['quantity']#will moved into "checkout"
-    #     this_customer.purchases.add(this_artwork)
-    #     return render(request, "completed_purchases.html")#will replaced with ckeckout page
+    this_artwork.quantity=this_artwork.quantity-request.POST['quantity']#will moved into "checkout"
+    this_customer.purchases.add(this_artwork)
+    return render(request, "completed_purchases.html")#will replaced with ckeckout page
     # else:
-    #     return redirect(f'/artwork_info/{artwork_id}')
-    return
+        # return redirect(f'/artwork_info/{artwork_id}')
 
 
 # submit btn for review valid for logged-in +iscustomer+artwork in purchases
