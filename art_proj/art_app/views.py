@@ -36,6 +36,25 @@ def artwork_info(request, artwork_id):
 
 # check quantity in html ,if not should be here
 
+def art_gallery(request):
+    context = {
+        "this_artwork" : Artwork.objects.all(),
+
+        "this_user": Artist.objects.all(),
+    }
+    return render(request, 'art_gallery.html', context)
+
+def payment(request):
+    return render(request, 'payment.html')
+
+def payment_success(request):
+    return render(request, 'payment_success.html')
+
+
+def check_out_page(request):
+    return render(request, 'checkout.html')
+
+
 
 def buy_artwork(request, artwork_id):
     if request.session['login'] == True:

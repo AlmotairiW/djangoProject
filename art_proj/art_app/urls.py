@@ -18,6 +18,11 @@ urlpatterns = [
     path('update_artwork/<int:artwork_id>', views.update_artwork),
     path('delete_artwork/<int:artwork_id>', views.delete_artwork),
     
+    path('checkout', views.check_out_page), 
+    path('art_gallery', views.art_gallery),
+    path('payment', views.payment),
+    path('payment_success', views.payment_success),
+
     path('artwork_info/<artwork_id>', views.artwork_info), # render a one artwork details page
     path('buy_artwork/<artwork_id>', views.buy_artwork),
     path('add_review/<artwork_id>', views.add_review),
